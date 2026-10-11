@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="510" viewBox="0 0 600 510" role="img" aria-labelledby="title desc">
+<title id="title">오른손 볼링의 릴리스 위치와 첫 진행 방향</title><desc id="desc">왼발로 슬라이드하고, 왼발 오른쪽 발목 옆에서 공을 놓는다. 오른발은 뒤로 비켜 주며 공을 선택한 화살표 쪽으로 보낸다. 위치와 각도는 개념도다.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#247553"/></marker></defs>
+<rect width="600" height="510" fill="#f1f5f3"/>
+<rect x="90" y="35" width="330" height="315" fill="#edf0e3"/>
+<g stroke="#d9dfcf" stroke-width="1"><path d="M120 35V350M150 35V350M180 35V350M210 35V350M240 35V350M270 35V350M300 35V350M330 35V350M360 35V350M390 35V350"/></g>
+<path d="M90 35V480M420 35V480" stroke="#a2b0a6" stroke-width="3"/>
+<path d="M90 350H420" stroke="#b74639" stroke-width="5"/>
+<g fill="#7d8d82"><path d="M150 185l-8 14h16ZM205 185l-8 14h16ZM255 185l-8 14h16ZM305 185l-8 14h16ZM360 185l-8 14h16Z"/></g>
+<path d="M272 371L305 194" fill="none" stroke="#247553" stroke-width="5" marker-end="url(#arrow)"/>
+<circle cx="272" cy="371" r="20" fill="#4e688b" stroke="#304765" stroke-width="2"/>
+<g fill="#354b40"><rect x="209" y="364" width="28" height="68" rx="13"/><rect x="310" y="431" width="29" height="66" rx="13" transform="rotate(-55 324 464)"/></g>
+<g fill="none" stroke="#788b80" stroke-width="2"><path d="M198 398H142V416"/><path d="M282 374H460V392"/><path d="M335 458H457"/><path d="M307 185L450 143"/></g>
+<g font-family="Malgun Gothic, Arial, sans-serif" font-size="17" fill="#263c30"><text x="117" y="444">왼발 슬라이드</text><text x="436" y="418">공을 놓는 곳</text><text x="447" y="484">오른발은 뒤로</text><text x="434" y="125">고른 화살표</text><text x="102" y="331" font-size="14" fill="#b74639">파울 라인</text><text x="120" y="63" font-size="15" fill="#596d60">핀 방향</text></g>
+</svg>

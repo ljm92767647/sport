@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="620" height="570" viewBox="0 0 620 570" role="img" aria-labelledby="title desc">
+<title id="title">핀 직전, 포켓으로 들어가는 6도 입사각</title><desc id="desc">위에서 본 오른손 투구. 레인과 평행한 점선에서 초록색 진행 선이 6도 기울어져 1번과 3번 사이 포켓으로 들어간다. 가로 세로 비율은 같으며 300만큼 전진할 때 옆으로 31.531만큼 이동하는 선이다.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#247553"/></marker></defs>
+<rect width="620" height="570" fill="#f0f5f6"/>
+<text x="28" y="37" font-family="Malgun Gothic,Arial,sans-serif" font-size="19" font-weight="700" fill="#253c32">핀 직전의 진행 방향 · 오른손</text>
+<g fill="white" stroke="#94aaa1" stroke-width="1.5">
+<circle cx="180" cy="80" r="15"/><circle cx="228" cy="80" r="15"/><circle cx="276" cy="80" r="15"/><circle cx="324" cy="80" r="15"/>
+<circle cx="204" cy="120" r="15"/><circle cx="252" cy="120" r="15"/><circle cx="300" cy="120" r="15"/>
+<circle cx="228" cy="160" r="15"/><circle cx="276" cy="160" r="15"/><circle cx="252" cy="200" r="15"/>
+</g>
+<g font-family="Malgun Gothic,Arial,sans-serif" fill="#253c32" text-anchor="middle" font-size="14"><text x="252" y="205">1</text><text x="276" y="165">3</text><text x="228" y="165">2</text></g>
+<path d="M280 220V545" stroke="#889b94" stroke-width="2" stroke-dasharray="8 7"/>
+<path d="M280 220L280 400A180 180 0 0 0 298.815 399.014Z" fill="#d9f56b" opacity=".8"/>
+<path d="M280 400A180 180 0 0 0 298.815 399.014" fill="none" stroke="#b74639" stroke-width="3"/>
+<path id="entry-direction" data-angle-degrees="6" d="M311.531 520L280 220" stroke="#247553" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+<circle cx="311.531" cy="520" r="18" fill="#3475a5" stroke="#275b80" stroke-width="2"/>
+<g stroke="#84978f" fill="none" stroke-width="1.5"><path d="M355 211H295"/><path d="M189 328H270"/><path d="M336 392L293 397"/><path d="M354 470H314"/></g>
+<g font-family="Malgun Gothic,Arial,sans-serif" fill="#253c32" font-size="17">
+<text x="363" y="216">1·3번 사이 포켓</text>
+<text x="30" y="315">레인 길이 방향</text><text x="30" y="341" fill="#64796f">점선 = 0° 기준</text>
+<text x="345" y="394" fill="#b74639" font-size="30" font-weight="700">6°</text>
+<text x="363" y="465" fill="#247553">핀 직전 공의</text><text x="363" y="491" fill="#247553">진행 방향</text>
+<text x="28" y="548" font-size="13" fill="#64796f">마지막 구간의 각도 예시 · 전체 훅 궤적이나 공 충돌의 실측 그림은 아님</text>
+</g>
+</svg>

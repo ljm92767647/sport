@@ -1,0 +1,15 @@
+.section-fold{margin-top:20px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:0}
+.section-fold>summary{align-items:center;padding:20px 0;font-size:22px;line-height:1.5}
+.section-fold>summary>span:first-child{min-width:0;overflow-wrap:anywhere}
+.section-fold>summary:after{content:none!important}
+.fold-state{font-size:14px;font-weight:500;color:var(--green);flex-shrink:0}
+.fold-state:after{content:'+';display:inline-block;width:18px;text-align:center;margin-left:8px;font-size:20px}
+.section-fold[open]>summary>.fold-state:after{content:'−'}
+.section-fold:not([open])>summary .fold-open,.section-fold[open]>summary .fold-closed{display:none}
+.fold-content>.intro{padding-top:20px}
+.fold-content>.section:last-of-type,.fold-content>.rule-section:last-of-type{border-bottom:0}
+.fold-close{display:block;max-width:100%;margin:22px 0 22px auto;padding:8px 14px;border:1px solid var(--line);border-radius:4px;background:white;font-size:14px;color:var(--green);white-space:normal}
+.fold-close:hover{background:var(--soft)}
+.fold-with-children>.fold-content{padding-left:20px;border-left:2px solid var(--line)}
+.fold-with-children>.fold-content>.section-fold>summary{font-size:19px}
+@media(max-width:720px){.section-fold>summary,.rulebook>summary{font-size:19px;gap:12px}.fold-with-children>.fold-content{padding-left:12px}.fold-with-children>.fold-content>.section-fold>summary{font-size:18px}}

@@ -1,0 +1,71 @@
+.section { padding: 44px 0; }
+.section h3 { margin-bottom: 28px; }
+.motion + .motion { margin-top: 30px; padding-top: 30px; border-top: 1px solid var(--line); }
+.motion h4 { font-size: 20px; line-height: 1.5; margin: 0 0 18px; }
+h5 { font-size: 17px; line-height: 1.5; margin: 0 0 10px; }
+.motion p { margin: 0; color: #435149; }
+.principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.principles > div + div { border-left: 1px solid var(--line); padding-left: 24px; }
+.principles .label, .cols .label { font-size: 13px; }
+.reading { max-width: 940px; }
+.reading p { display: grid; grid-template-columns: 160px 1fr; gap: 24px; margin: 0 0 18px; }
+.reading p:last-child { margin-bottom: 0; }
+.reading strong { color: var(--ink); }
+.inset { margin: 24px 0; padding: 20px 24px; background: var(--soft); }
+.motion .steps { max-width: 940px; }
+.motion .steps p { color: #435149; }
+.motion .steps li:last-child { padding-bottom: 0; }
+.racket-layout { display: grid; grid-template-columns: minmax(210px, .7fr) minmax(0, 1.3fr); gap: 70px; align-items: center; }
+.racket-figure { margin: 0; text-align: center; }
+.racket-figure img { width: 100%; max-width: 310px; height: 570px; object-fit: contain; display: block; margin: auto; }
+.racket-figure figcaption { font-size: 12px; font-weight: 700; color: var(--muted); margin-top: 12px; }
+.racket-specs { margin: 0; border-top: 1px solid var(--line); }
+.racket-specs > div { display: grid; grid-template-columns: 125px 1fr; gap: 22px; align-items: start; padding: 19px 0; border-bottom: 1px solid var(--line); }
+.racket-specs dt { font-size: 14px; color: var(--muted); padding-top: 3px; }
+.racket-specs dd { margin: 0; }
+.racket-specs strong { font-size: 21px; line-height: 1.5; font-weight: 700; }
+.racket-specs small { display: block; font-size: 14px; margin-top: 5px; color: var(--muted); }
+.sequence { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 24px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.sequence span { display: block; font-size: 14px; color: var(--muted); }
+.sequence strong { font-size: 20px; }
+.sequence b { color: var(--green); }
+.source-diagram { margin: 30px 0 0; }
+.source-diagram img { display: block; max-width: 100%; width: 816px; height: auto; margin: auto; }
+.source-diagram figcaption { margin-top: 12px; font-size: 13px; color: var(--muted); text-align: center; }
+.lie-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 36px 40px; }
+.lie-grid .motion + .motion { margin-top: 0; padding-top: 0; border: 0; }
+.lie-grid .reading p { display: block; }
+.lie-grid .reading strong { display: block; margin-bottom: 5px; font-size: 14px; }
+.shape-table th:nth-child(1) { width: 13%; }
+.shape-table th:nth-child(2) { width: 28%; }
+.shape-table th:nth-child(3) { width: 25%; }
+.shape-table th:nth-child(4) { width: 34%; }
+.flight-figure { margin: 24px 0 0; }
+.flight-figure img { display: block; width: 100%; height: auto; }
+.flight-figure figcaption { margin-top: 10px; font-size: 13px; color: var(--muted); }
+.placement-emphasis { font-weight: 800; color: var(--green); background: #e4f0c9; padding: 2px 5px; border-bottom: 2px solid var(--green); }
+.wedge-images { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 720px; margin: 22px auto 0; }
+.wedge-images figure { margin: 0; }
+.frame-stage { font-size: 16px; font-weight: 700; color: var(--green); margin: 0 0 10px; }
+.wedge-images img { display: block; width: 100%; height: auto; }
+.wedge-image-note { font-size: 13px; color: var(--muted); margin-top: 12px !important; }
+@media (max-width: 720px) {
+  .wedge-images { grid-template-columns: 1fr; max-width: 330px; gap: 16px; }
+  .section { padding: 32px 0; }
+  .motion h4 { font-size: 19px; }
+  .principles { grid-template-columns: 1fr; gap: 24px; }
+  .principles > div + div { border-left: 0; padding-left: 0; }
+  .reading p { display: block; margin-bottom: 20px; }
+  .reading p strong { display: block; margin-bottom: 5px; }
+  .racket-layout { grid-template-columns: minmax(90px, .38fr) minmax(0, .62fr); gap: 20px; align-items: start; }
+  .racket-figure { position: sticky; top: 88px; }
+  .racket-figure img { height: 380px; }
+  .racket-specs > div { grid-template-columns: 1fr; gap: 4px; padding: 15px 0; }
+  .racket-specs strong { font-size: 18px; }
+  .racket-specs small { font-size: 13px; }
+  .racket-figure figcaption { font-size: 12px; }
+  .sequence { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .sequence b { transform: rotate(90deg); margin-left: 4px; }
+  .lie-grid { grid-template-columns: 1fr; gap: 30px; }
+  .shape-table { min-width: 720px; }
+}

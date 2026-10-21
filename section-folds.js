@@ -41,7 +41,7 @@
   fold('나의 라켓 스펙', [find('#racket')], 'fold-racket');
   fold('야구 타격 스윙', all('#baseball > .intro, #baseball > .section'), 'fold-baseball-swing');
   fold('골프 스윙 자세', all('#golf > .intro, #golf > .subnav, #golf-basic, #driver'), 'fold-golf-swing');
-  for (const [id, title] of [['wedge', '샌드웨지 거리 조절'], ['shape', '드로우 · 페이드 · 벙커 고각샷'], ['lies', '상하좌우 경사면에서의 샷']]) {
+  for (const [id, title] of [['wedge', '샌드웨지 거리 조절'], ['shape', '드로우 · 페이드 · 벙커 고각샷'], ['lies', '상하좌우 경사면에서의 샷'], ['putter', '퍼터 조절']]) {
     fold(title, [find(`#${id}`)], `fold-${id}`);
   }
   fold('스윙의 기본 · 스트라이크를 위하여', [find('#bowling-strike')], 'fold-bowling-strike');

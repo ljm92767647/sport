@@ -36,6 +36,16 @@
   const track = stage.querySelector('.glass-track');
   const windowElement = stage.querySelector('.glass-window');
   const cards = [...stage.querySelectorAll('.glass-card')];
+  function positionTitle() {
+    const navBottom = nav.querySelector('.tabs').getBoundingClientRect().bottom - stage.getBoundingClientRect().top;
+    const cardTop = (windowElement.clientHeight - parseFloat(getComputedStyle(cards[0]).height)) / 2;
+    stage.style.setProperty('--title-midpoint', `${(navBottom + cardTop) / 2}px`);
+  }
+  const titleLayout = new ResizeObserver(positionTitle);
+  titleLayout.observe(windowElement);
+  titleLayout.observe(nav.querySelector('.tabs'));
+  titleLayout.observe(cards[0]);
+  positionTitle();
   const buttons = [...nav.querySelectorAll('[data-sport]')];
   const previous = stage.querySelector('.glass-prev');
   const next = stage.querySelector('.glass-next');

@@ -51,3 +51,8 @@ h1,h2{font-family:var(--display-font);font-weight:400}h3{font-family:var(--body-
 @media(max-width:700px){.glass-title{font-size:44px}}
 @media(max-width:350px){.glass-title{font-size:38px}}
 @media(max-height:540px){.glass-title{font-size:44px}}
+.sports-title{position:absolute;top:22px;left:0;right:0;z-index:1;margin:0;text-align:center;line-height:1.15;pointer-events:none;transition:opacity .3s,transform .5s}
+.reading-mode .sports-title{opacity:0;transform:translateY(-110%)}
+.panel>.rulebook,.panel>.section-fold{margin:0}
+.panel>.rulebook>summary,.panel>.section-fold>summary{min-height:84px}
+@media(max-width:700px){.panel>.rulebook>summary,.panel>.section-fold>summary{min-height:100px}.sports-title{top:24px}}

@@ -22,7 +22,7 @@
   stage.setAttribute('role', 'region');
   stage.setAttribute('aria-roledescription', 'carousel');
   stage.setAttribute('aria-label', '종목 선택');
-  stage.innerHTML = `<div class="glass-window"><div class="glass-track">${sports.map(([id, title, korean], i) => `
+  stage.innerHTML = `<h1 class="sports-title glass-title">Sports Note</h1><div class="glass-window"><div class="glass-track">${sports.map(([id, title, korean], i) => `
     <button type="button" class="glass-card" data-card="${i}" aria-label="${korean} 내용 보기" aria-controls="${id}">
       <span class="glass-surface" aria-hidden="true"><span class="glass-glint"></span></span>
       <span class="glass-count" aria-hidden="true">0${i + 1} / 06</span>

@@ -81,6 +81,8 @@
     button.addEventListener('click', event => {
       event.stopImmediatePropagation();
       choose(i);
+      setReading(false);
+      button.focus({preventScroll: true});
     }, true);
     button.addEventListener('keydown', event => {
       let index;
@@ -92,6 +94,8 @@
         event.preventDefault();
         event.stopImmediatePropagation();
         choose(index, true);
+        setReading(false);
+        buttons[index].focus({preventScroll: true});
       }
     }, true);
   });

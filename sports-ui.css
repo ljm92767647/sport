@@ -36,3 +36,18 @@ footer{background:#e4f0f3;color:#65828d;padding:22px 0}footer .footerbrand{color
 @media(max-width:350px){.sports-shell .tabs button{font-size:12px}.glass-title{font-size:30px}.glass-korean{font-size:13px}.glass-card{padding:20px 14px}}
 @media(max-height:540px){:root{--card-height:240px}.glass-title{font-size:36px}}
 @media(prefers-reduced-motion:reduce){.sport-stage,.glass-window,.glass-track,.glass-card{transition:none}}
+@font-face{font-family:'DM Sans';src:url('https://ljm92767647.github.io/rulebook/assets/fonts/dm-sans-variable.ttf') format('truetype');font-style:normal;font-weight:100 1000;font-display:swap}
+@font-face{font-family:'DM Serif Display';src:url('https://ljm92767647.github.io/rulebook/assets/fonts/dm-serif-display.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:'S-Core Dream';src:url('https://ljm92767647.github.io/rulebook/assets/fonts/s-core-dream-regular.woff2') format('woff2');font-style:normal;font-weight:100 400;font-display:swap}
+@font-face{font-family:'S-Core Dream';src:url('https://ljm92767647.github.io/rulebook/assets/fonts/s-core-dream-medium.woff2') format('woff2');font-style:normal;font-weight:500 900;font-display:swap}
+:root{--body-font:'DM Sans','S-Core Dream',sans-serif;--display-font:'DM Serif Display','S-Core Dream',serif;font-family:var(--body-font)}
+body,button,input,select,textarea,summary,table,svg text{font-family:var(--body-font)}
+svg text{font-family:var(--body-font)!important}
+h1,h2{font-family:var(--display-font);font-weight:400}h3{font-family:var(--body-font);font-weight:500}
+.glass-title{font-family:var(--display-font);font-size:74px;font-weight:400}
+.reading p>span{min-width:0}.grip-aside{font-size:14px;color:var(--muted)}
+/* Keep focus changes from scrolling the transformed carousel's clipping window. */
+.glass-window,.sport-stage{overflow:clip}
+@media(max-width:700px){.glass-title{font-size:44px}}
+@media(max-width:350px){.glass-title{font-size:38px}}
+@media(max-height:540px){.glass-title{font-size:44px}}

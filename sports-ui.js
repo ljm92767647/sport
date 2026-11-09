@@ -21,7 +21,8 @@
   backdrop.innerHTML = `<div class="sport-backdrop-motion">${sports.map(([id]) =>
     `<img src="assets/sport-background-${id}.webp" data-background="${id}" alt="" decoding="async">`
   ).join('')}</div>`;
-  shell.append(backdrop, nav);
+  shell.before(backdrop);
+  shell.append(nav);
   const stage = document.createElement('div');
   stage.className = 'sport-stage';
   stage.tabIndex = 0;

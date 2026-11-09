@@ -59,18 +59,29 @@ h1,h2{font-family:var(--display-font);font-weight:400}h3{font-family:var(--body-
 @media(max-height:440px){:root{--card-height:180px}.glass-card{padding:20px;gap:10px}.glass-count{top:10px;left:20px}}
 @media(max-height:360px){:root{--card-height:140px}}
 
-.sports-shell{overflow:clip;--card-rise:calc((var(--stage-height) + var(--card-height)) / -2 + 22px)}
+:root{--card-rise:calc((var(--stage-height) + var(--card-height)) / -2 + 22px);--reading-tail:154px}
+.sports-shell{background:transparent}
 .sports-shell .sportnav{background:transparent}
-.sport-backdrop{position:absolute;inset:0;pointer-events:none;mask-image:linear-gradient(to bottom,#000 80%,transparent 100%)}
-.sport-backdrop-motion{position:absolute;inset:0 0 auto;height:calc(var(--stage-height) + var(--nav-height));mask-image:linear-gradient(to bottom,#000 64%,transparent 100%);transition:transform .7s cubic-bezier(.22,.85,.22,1),opacity .7s cubic-bezier(.22,.85,.22,1)}
+.sport-backdrop{position:absolute;inset:0 0 auto;height:100svh;overflow:clip;pointer-events:none;transition:height .7s cubic-bezier(.22,.85,.22,1)}
+.sport-backdrop-motion{position:absolute;inset:0 0 auto;height:100svh;transition:transform .7s cubic-bezier(.22,.85,.22,1)}
 .sport-backdrop-motion>img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .35s ease}
 .sport-backdrop-motion>img.is-current{opacity:1}
-.sport-backdrop-motion:after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,#f2f8fae6 0%,#f2f8fabd 22%,#f2f8fa38 49%,#f2f8fa0a 73%)}
+.sport-backdrop:after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 19%,#f2f8fa45 48%,#f2f8fa 100%);opacity:0;transition:opacity .35s ease}
 .glass-window{mask-image:none}
-.glass-surface{background-color:#e4f5f66e}
+.glass-surface{background:radial-gradient(ellipse at var(--light-x,28%) var(--light-y,12%),#ffffff75 0%,#ffffff12 50%,transparent 75%),linear-gradient(132deg,#ffffff35 0%,#e4f5f621 32%,#88bfd01a 68%,#ffffff46 100%)}
+.sports-title,.glass-card .glass-title,.glass-korean,.glass-count{color:#fff;text-shadow:0 1px 2px #101f28d9,0 2px 12px #101f2899}
+.glass-arrow,.glass-arrow:hover:not(:disabled){color:#fff;filter:drop-shadow(0 1px 2px #101f28)}
+.sports-shell .sportnav .tabs{background:linear-gradient(145deg,#f2fbfbba,#d5ebed99);border:1px solid #ffffff8c;box-shadow:inset 0 1px 2px #ffffffbc,0 4px 14px #16293224;backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2)}
+.sports-shell .tabs button{color:#1e353e}
+.sports-shell .tabs button:hover{background:#eef9f9b3}
+.sports-shell .tabs button[aria-selected=true]{background:#e7f5f5ed;box-shadow:inset 0 1px 2px #fff,0 1px 5px #20364226}
 .reading-mode .glass-window,.reading-mode .sport-backdrop-motion{transform:translateY(var(--card-rise))}
-.reading-mode .sport-backdrop-motion{opacity:0}
+.reading-mode .sport-backdrop{height:min(calc(var(--nav-height) + 26px + var(--reading-tail)),calc(100svh + var(--card-rise)))}
+.reading-mode .sport-backdrop:after{opacity:1}
+.reading-mode main.wrap{position:relative;padding-top:calc(var(--reading-tail) + 22px)}
 @media(max-width:700px){
+  :root{--reading-tail:116px}
+  .reading-mode main.wrap{padding-top:calc(var(--reading-tail) + 16px)}
   .sport-backdrop-motion>img[data-background=tennis]{object-position:35% center}
   .sport-backdrop-motion>img[data-background=baseball]{object-position:47% center}
   .sport-backdrop-motion>img[data-background=golf]{object-position:51% center}
@@ -79,4 +90,4 @@ h1,h2{font-family:var(--display-font);font-weight:400}h3{font-family:var(--body-
   .sport-backdrop-motion>img[data-background=table-tennis]{object-position:48% center}
   .glass-surface{backdrop-filter:blur(12px) saturate(1.2);-webkit-backdrop-filter:blur(12px) saturate(1.2)}
 }
-@media(prefers-reduced-motion:reduce){.sport-backdrop-motion,.sport-backdrop-motion>img{transition:none}}
+@media(prefers-reduced-motion:reduce){.sport-backdrop,.sport-backdrop:after,.sport-backdrop-motion,.sport-backdrop-motion>img{transition:none}}

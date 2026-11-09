@@ -60,6 +60,70 @@
   const back = stage.querySelector('.stage-return');
   let active = Math.max(0, sports.findIndex(([id]) => document.getElementById(id).hidden === false));
   let reading = false, pointer = null, suppressedUntil = 0;
+  const samples = new WeakMap();
+  const sampleCanvas = document.createElement('canvas');
+  sampleCanvas.width = 96;
+  sampleCanvas.height = 64;
+  const sampleContext = sampleCanvas.getContext('2d', {willReadFrequently: true});
+  let contrastFrame = 0;
+
+  function updateContrast() {
+    contrastFrame = 0;
+    const image = backgrounds[active];
+    const photo = image.getBoundingClientRect();
+    const clip = backdrop.getBoundingClientRect();
+    let pixels = samples.get(image);
+    if (!pixels && image.complete && image.naturalWidth && sampleContext) {
+      try {
+        sampleContext.drawImage(image, 0, 0, sampleCanvas.width, sampleCanvas.height);
+        pixels = sampleContext.getImageData(0, 0, sampleCanvas.width, sampleCanvas.height).data;
+      } catch { pixels = null; }
+      samples.set(image, pixels || false);
+    }
+    const scale = Math.max(photo.width / image.naturalWidth, photo.height / image.naturalHeight);
+    const width = image.naturalWidth * scale, height = image.naturalHeight * scale;
+    const [positionX, positionY] = getComputedStyle(image).objectPosition.split(' ').map(value => parseFloat(value) / 100);
+    const left = photo.left + (photo.width - width) * positionX;
+    const top = photo.top + (photo.height - height) * positionY;
+    const sky = [242, 248, 250];
+    const fade = Number(getComputedStyle(backdrop, '::after').opacity);
+
+    // Map each control to the portion of the cover-cropped photo directly behind it.
+    function luminance(x, y, glass) {
+      const inPhoto = pixels && x >= clip.left && x < clip.right && y >= clip.top && y < clip.bottom && y >= photo.top && y < photo.bottom;
+      const ix = Math.max(0, Math.min(95, Math.floor((x - left) / width * 96)));
+      const iy = Math.max(0, Math.min(63, Math.floor((y - top) / height * 64)));
+      const offset = (iy * 96 + ix) * 4;
+      const progress = (y - clip.top) / clip.height;
+      const mix = inPhoto ? fade * Math.max(0, Math.min(1, (progress - .19) / .81)) : 1;
+      return sky.reduce((sum, channel, i) => {
+        const original = inPhoto ? pixels[offset + i] : channel;
+        const faded = original * (1 - mix) + channel * mix;
+        const s = (glass ? faded * .83 + channel * .17 : faded) / 255;
+        return sum + [0.2126, 0.7152, 0.0722][i] * (s <= .04045 ? s / 12.92 : ((s + .055) / 1.055) ** 2.4);
+      }, 0);
+    }
+    for (const control of [...buttons, previous, next]) {
+      if (control.hidden) continue;
+      const box = control.getBoundingClientRect();
+      const glass = buttons.includes(control);
+      let sum = 0;
+      for (const x of [.3, .5, .7]) for (const y of [.35, .5, .65]) {
+        sum += luminance(box.left + box.width * x, box.top + box.height * y, glass);
+      }
+      const light = !control.matches('[aria-selected=true]') && (pixels === false && !reading || sum / 9 < .21);
+      control.style.setProperty('--control-ink', light ? '#fff' : '#14252d');
+      control.style.setProperty('--control-shadow', light ? '#101f28' : '#ffffffb8');
+    }
+  }
+
+  function scheduleContrast() {
+    if (!contrastFrame) contrastFrame = requestAnimationFrame(updateContrast);
+  }
+  backgrounds.forEach(image => image.addEventListener('load', scheduleContrast));
+  backdrop.addEventListener('transitionend', scheduleContrast);
+  window.addEventListener('resize', scheduleContrast);
+  window.addEventListener('scroll', scheduleContrast, {passive: true});
 
   function choose(index, focusTab = false) {
     active = Math.max(0, Math.min(sports.length - 1, index));
@@ -75,6 +139,7 @@
     });
     previous.disabled = active === 0;
     next.disabled = active === sports.length - 1;
+    scheduleContrast();
     stage.querySelector('[role="status"]').textContent = `${active + 1} / 6 · ${korean}`;
     if (reading) window.scrollTo({top: 0, behavior: 'instant'});
   }
@@ -88,6 +153,7 @@
     stage.tabIndex = value ? -1 : 0;
     back.setAttribute('aria-expanded', String(!value));
     back.hidden = !value;
+    scheduleContrast();
     cards.forEach((card, i) => { card.tabIndex = i === active && !value ? 0 : -1; });
     window.scrollTo({top: 0, behavior: 'instant'});
     if (value) {

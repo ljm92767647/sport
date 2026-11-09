@@ -68,13 +68,13 @@ h1,h2{font-family:var(--display-font);font-weight:400}h3{font-family:var(--body-
 .sport-backdrop-motion>img.is-current{opacity:1}
 .sport-backdrop:after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 19%,#f2f8fa45 48%,#f2f8fa 100%);opacity:0;transition:opacity .35s ease}
 .glass-window{mask-image:none}
-.glass-surface{background:radial-gradient(ellipse at var(--light-x,28%) var(--light-y,12%),#ffffff75 0%,#ffffff12 50%,transparent 75%),linear-gradient(132deg,#ffffff35 0%,#e4f5f621 32%,#88bfd01a 68%,#ffffff46 100%)}
+.glass-surface{background:radial-gradient(ellipse at var(--light-x,28%) var(--light-y,12%),#ffffff75 0%,#ffffff12 50%,transparent 75%),linear-gradient(132deg,#ffffff35 0%,#e4f5f621 32%,#88bfd01a 68%,#ffffff46 100%);backdrop-filter:blur(4px) saturate(1.2);-webkit-backdrop-filter:blur(4px) saturate(1.2)}
 .sports-title,.glass-card .glass-title,.glass-korean,.glass-count{color:#fff;text-shadow:0 1px 2px #101f28d9,0 2px 12px #101f2899}
-.glass-arrow,.glass-arrow:hover:not(:disabled){color:#fff;filter:drop-shadow(0 1px 2px #101f28)}
-.sports-shell .sportnav .tabs{background:linear-gradient(145deg,#f2fbfbba,#d5ebed99);border:1px solid #ffffff8c;box-shadow:inset 0 1px 2px #ffffffbc,0 4px 14px #16293224;backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2)}
-.sports-shell .tabs button{color:#1e353e}
-.sports-shell .tabs button:hover{background:#eef9f9b3}
-.sports-shell .tabs button[aria-selected=true]{background:#e7f5f5ed;box-shadow:inset 0 1px 2px #fff,0 1px 5px #20364226}
+.glass-arrow,.glass-arrow:hover:not(:disabled){color:var(--control-ink,#fff);filter:drop-shadow(0 1px 2px var(--control-shadow,#101f28))}
+.sports-shell .sportnav .tabs{background:linear-gradient(145deg,#f2fbfb33,#d5ebed26);border:1px solid #ffffff8c;box-shadow:inset 0 1px 2px #ffffffbc,0 4px 14px #16293224;backdrop-filter:blur(4px) saturate(1.2);-webkit-backdrop-filter:blur(4px) saturate(1.2)}
+.sports-shell .tabs button{color:var(--control-ink,#fff);text-shadow:0 1px 3px var(--control-shadow,#101f28)}
+.sports-shell .tabs button:hover{background:#eef9f92b}
+.sports-shell .tabs button[aria-selected=true]{background:linear-gradient(145deg,#f2fbfbba,#d5ebed99);color:#14252d;text-shadow:none;box-shadow:inset 0 1px 2px #ffffffbc,0 1px 5px #20364226}
 .reading-mode .glass-window,.reading-mode .sport-backdrop-motion{transform:translateY(var(--card-rise))}
 .reading-mode .sport-backdrop{height:min(calc(var(--nav-height) + 26px + var(--reading-tail)),calc(100svh + var(--card-rise)))}
 .reading-mode .sport-backdrop:after{opacity:1}
@@ -88,6 +88,5 @@ h1,h2{font-family:var(--display-font);font-weight:400}h3{font-family:var(--body-
   .sport-backdrop-motion>img[data-background=bowling]{object-position:48% center}
   .sport-backdrop-motion>img[data-background=billiards]{object-position:73% center}
   .sport-backdrop-motion>img[data-background=table-tennis]{object-position:48% center}
-  .glass-surface{backdrop-filter:blur(12px) saturate(1.2);-webkit-backdrop-filter:blur(12px) saturate(1.2)}
 }
 @media(prefers-reduced-motion:reduce){.sport-backdrop,.sport-backdrop:after,.sport-backdrop-motion,.sport-backdrop-motion>img{transition:none}}

@@ -19,7 +19,7 @@
   backdrop.className = 'sport-backdrop';
   backdrop.setAttribute('aria-hidden', 'true');
   backdrop.innerHTML = `<div class="sport-backdrop-motion">${sports.map(([id]) =>
-    `<img src="assets/sport-background-${id}.webp" data-background="${id}" alt="" decoding="async">`
+    `<img src="assets/sport-background-${id}.webp${id === 'table-tennis' ? '?v=20261109d' : ''}" data-background="${id}" alt="" decoding="async">`
   ).join('')}</div>`;
   shell.before(backdrop);
   shell.append(nav);

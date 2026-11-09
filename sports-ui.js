@@ -15,7 +15,13 @@
   const shell = document.createElement('div');
   shell.className = 'sports-shell';
   nav.before(shell);
-  shell.append(nav);
+  const backdrop = document.createElement('div');
+  backdrop.className = 'sport-backdrop';
+  backdrop.setAttribute('aria-hidden', 'true');
+  backdrop.innerHTML = `<div class="sport-backdrop-motion">${sports.map(([id]) =>
+    `<img src="assets/sport-background-${id}.webp" data-background="${id}" alt="" decoding="async">`
+  ).join('')}</div>`;
+  shell.append(backdrop, nav);
   const stage = document.createElement('div');
   stage.className = 'sport-stage';
   stage.tabIndex = 0;
@@ -36,6 +42,7 @@
   const track = stage.querySelector('.glass-track');
   const windowElement = stage.querySelector('.glass-window');
   const cards = [...stage.querySelectorAll('.glass-card')];
+  const backgrounds = [...backdrop.querySelectorAll('[data-background]')];
   function positionTitle() {
     const navBottom = nav.querySelector('.tabs').getBoundingClientRect().bottom - stage.getBoundingClientRect().top;
     const cardTop = (windowElement.clientHeight - parseFloat(getComputedStyle(cards[0]).height)) / 2;
@@ -59,6 +66,7 @@
     selectSport(id, focusTab);
     history.replaceState(null, '', `#${id}`);
     track.style.setProperty('--active', active);
+    backgrounds.forEach((image, i) => image.classList.toggle('is-current', i === active));
     cards.forEach((card, i) => {
       card.classList.toggle('is-current', i === active);
       card.style.setProperty('--side', Math.sign(i - active));

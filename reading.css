@@ -5,6 +5,11 @@
 h5 { font-size: 17px; line-height: 1.5; margin: 0 0 10px; }
 .motion p { margin: 0; color: #435149; }
 .principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.forehand-principles { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+@media (min-width: 721px) and (max-width: 1000px) {
+  .forehand-principles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .forehand-principles > div:nth-child(3) { border-left: 0; padding-left: 0; }
+}
 .principles > div + div { border-left: 1px solid var(--line); padding-left: 24px; }
 .principles .label, .cols .label { font-size: 13px; }
 .reading { max-width: 940px; }
